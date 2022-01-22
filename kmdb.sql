@@ -167,7 +167,7 @@ VALUES ('The Dark Knight Rises', 2012, 12, 'PG-13');
 
 -- The SQL statement for the movies output
 -- TODO!
-select movies.title, movies.year_released, people.name, movies.MPAA_rating from movies INNER JOIN people ON movies.director_id = people.id;
+SELECT movies.title, movies.year_released, people.name, movies.MPAA_rating FROM movies INNER JOIN people ON movies.director_id = people.id;
 
 -- Prints a header for the cast output
 .print ""
@@ -179,6 +179,6 @@ select movies.title, movies.year_released, people.name, movies.MPAA_rating from 
 -- The SQL statement for the cast output
 -- TODO!
 
-SELECT movies.title, people.name, roles.role_name from roles
+SELECT movies.title, people.name, roles.role_name FROM roles
     INNER JOIN movies ON movies.id = roles.movie_id
     INNER JOIN people ON people.id = roles.cast_id;
