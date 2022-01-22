@@ -69,7 +69,8 @@
 -- Drop existing tables, so you'll start fresh each time this script is run.
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS directors;
-DROP TABLE IF EXISTS cast;
+DROP TABLE IF EXISTS people;
+DROP TABLE IF EXISTS roles;
 
 
 -- Create new tables, according to your domain model
@@ -96,7 +97,68 @@ CREATE TABLE roles (
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
--- TODO!
+INSERT INTO people (name)
+VALUES ('Christian Bale');
+INSERT INTO people (name)
+VALUES ('Michael Caine');
+INSERT INTO people (name)
+VALUES ('Liam Neeson');
+INSERT INTO people (name)
+VALUES ('Katie Holmes');
+INSERT INTO people (name)
+VALUES ('Gary Oldman');
+INSERT INTO people (name)
+VALUES ('Heath Ledger');
+INSERT INTO people (name)
+VALUES ('Aaron Eckhart');
+INSERT INTO people (name)
+VALUES ('Maggie Gyllenhaal');
+INSERT INTO people (name)
+VALUES ('Tom Hardy');
+INSERT INTO people (name)
+VALUES ('Joseph Gordon-Levitt');
+INSERT INTO people (name)
+VALUES ('Anne Hathaway');
+INSERT INTO people (name)
+VALUES ('Christopher Nolan');
+
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(1, 1, 'Bruce Wayne');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(2, 1, 'Alfred');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(3, 1, 'Ras Al Ghul');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(4, 1, 'Rachel Dawes');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(5, 1, 'Commissioner Gordon');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(1, 2, 'Bruce Wayne');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(6, 2, 'Joker');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(7, 2, 'Harvey Dent');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(2, 2, 'Alfred');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(8, 2, 'Rachel Dawes');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(1, 3, 'Bruce Wayne');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(5, 3, 'Commissioner Gordon');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(9, 3, 'Bane');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(10, 3, 'John Blake');
+INSERT INTO roles (cast_id, movie_id, role_name)
+VALUES(11, 3, 'Selina Kyle');
+
+INSERT INTO movies (title, year_released, director_id, MPAA_rating)
+VALUES ('Batman Begins', 2005, 12, 'PG-13');
+INSERT INTO movies (title, year_released, director_id, MPAA_rating)
+VALUES ('The Dark Knight', 2008, 12, 'PG-13');
+INSERT INTO movies (title, year_released, director_id, MPAA_rating)
+VALUES ('The Dark Knight Rises', 2012, 12, 'PG-13');
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -105,6 +167,7 @@ CREATE TABLE roles (
 
 -- The SQL statement for the movies output
 -- TODO!
+select title, year_released, director_id, MPAA_rating from movies;
 
 -- Prints a header for the cast output
 .print ""
@@ -115,3 +178,5 @@ CREATE TABLE roles (
 
 -- The SQL statement for the cast output
 -- TODO!
+
+SELECT movie_id, cast_id, role_name from roles;
